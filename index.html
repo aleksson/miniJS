@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="UTF-8">
+	<title>miniJS</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/ionicons.min.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+<div class="container-fluid">
+	<h1>miniJS</h1>
+	<div class="container">
+		<p>Lazy functions</p>
+		<pre>
+			
+document.getElementById() -> mini.getID('id');
+document.getElementsByTagName() -> mini.getTag('tag');
+document.getElementsByClassName() -> mini.getClass('class');
+document.addEventListener() -> mini.addEvent('type','target','callback');
+
+mini.hide('class/id')
+mini.show('class/id')
+
+		</pre>
+	</div>
+	<div class="container">
+	<h1>Hide / Show</h1>
+	<hr><br>
+
+			<div class="row">
+				<div class="col-md-6">
+					<pre>mini.show('.showThisText');</pre>
+				</div>
+				<div class="col-md-6">
+					<button id="showText" class="btn">Show Text</button>
+					<p class="showThisText pull-right" hidden>Min Test Text</p>
+				</div>
+				
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-6">
+					<pre>mini.hide('.hideThisText');</pre>
+				</div>
+				<div class="col-md-6">
+					<button id="hideText" class="btn">Hide Text</button>
+					<p class="hideThisText pull-right">Min Test Text som skall döljas</p>
+				</div>
+				
+			</div>
+
+
+			<hr><br>
+			<h1>Event listeners</h1>
+			<div class="row">
+				<div class="col-md-6">
+					<pre>mini.addEvent('click','testBtnEvent',function(e){
+	alert("Event is working!");
+});</pre>
+				</div>
+				<div class="col-md-6">
+					<button id="testButton" class="btn">Add Event</button>
+					<button id="testBtnEvent" class="btn">To this button</button>
+				</div>
+				
+			</div>
+			<br><hr>
+
+			<div class="row">
+				<div class="col-md-6">
+					<pre>mini.addEvent('keyup','testInput',function(e){
+	testInputData.innerText = e.target.value;
+console.log(e.target.value);
+});</pre>
+				</div>
+				<div class="col-md-6">
+					<button id="testInputBtn" class="btn">Add Input eventListener</button><br><br>
+					<input type="text" id="testInput" class="form-control"><br>
+					<p> Data bind: <p id="testInputData"></p></p>
+				</div>
+				
+			</div>
+
+
+
+
+	</div><!-- container -->
+</div><!-- container-fluid -->
+
+
+
+<br><br>
+
+
+
+
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/miniJS.js"></script>
+
+
+
+  	<script type="text/javascript">
+
+  	//mini.getClass('showThisText')[0].style.display = "none" // hide
+  	//mini.getClass('showThisText')[0].style.display = "block" // show
+
+  		// var test = mini.getID('testID');
+  		// var t = test.innerText;
+  		// console.log(t);
+  		//console.log(test);
+
+
+
+
+	/*MINI TESTS*/
+
+
+	/*SHOW*/
+	$('#showText').click(function (e) {
+		//e.preventDefault();
+		//mini.last.Event = e;
+		mini.show('.showThisText');
+	});
+
+	/*HIDE*/
+	$('#hideText').click(function (e) {
+		//e.preventDefault();
+		//mini.last.Event = e;
+		mini.hide('.hideThisText'); // ID finns inte... class finns
+	});
+
+	/*EVENT CLICK*/
+	$('#testButton').click(function () {
+
+		mini.addEvent('click','testBtnEvent',function(e){
+			//e.preventDefault();
+			//mini.last.Event = e;
+			alert("Event is working!");
+		});
+	})
+
+
+	/*EVENT KEYUP*/
+	$('#testInputBtn').click(function () {
+
+		mini.addEvent('keyup','testInput',function(e){
+			//e.preventDefault();
+			//mini.last.KeyPress = e.key;
+			testInputData.innerText = e.target.value;
+			console.log(e.target.value);
+		});
+	})
+
+
+
+
+
+
+  		
+  	</script>
+
+
+</body>
+</html>
