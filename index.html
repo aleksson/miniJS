@@ -20,13 +20,21 @@
 		<p>Lazy functions</p>
 		<pre>
 			
-document.getElementById() -> mini.getID('id');
-document.getElementsByTagName() -> mini.getTag('tag');
-document.getElementsByClassName() -> mini.getClass('class');
-document.addEventListener() -> mini.addEvent('type','target','callback');
+mini.getID("id");
+mini.getTag("tag");
+mini.getClass("class");
 
-mini.hide('class/id')
-mini.show('class/id')
+mini.hide("class/id");
+mini.show("class/id");
+mini.toggle("class/id");
+mini.html("class/id");
+
+mini.timer("ms",callback);
+mini.click("target","callback");
+mini.ajax("type","URI",callback);
+mini.addEvent("type","target","callback");
+
+
 
 		</pre>
 	</div>
@@ -57,6 +65,22 @@ mini.show('class/id')
 			</div>
 
 
+
+			<hr>
+			<div class="row">
+				<div class="col-md-6">
+					<pre>mini.toggle('.toggleMe');</pre>
+				</div>
+				<div class="col-md-6">
+					<button id="toggleTest" class="btn">Toggle Test</button>
+					<p class="toggleMe pull-right" id="toggleMee">Detta ska togglas</p>
+				</div>
+				
+			</div>
+
+
+
+
 			<hr><br>
 			<h1>Event listeners</h1>
 			<div class="row">
@@ -77,16 +101,69 @@ mini.show('class/id')
 				<div class="col-md-6">
 					<pre>mini.addEvent('keyup','testInput',function(e){
 	testInputData.innerText = e.target.value;
-console.log(e.target.value);
+	console.log(e.target.value);
 });</pre>
 				</div>
 				<div class="col-md-6">
 					<button id="testInputBtn" class="btn">Add Input eventListener</button><br><br>
 					<input type="text" id="testInput" class="form-control"><br>
-					<p> Data bind: <p id="testInputData"></p></p>
+					<p> Data bind: <b id="testInputData"></b></p>
 				</div>
 				
 			</div>
+
+
+			<hr>
+			<div class="row">
+				<div class="col-md-6">
+					<pre>mini.timer(ms,callback);</pre>
+				</div>
+				<div class="col-md-6">
+					<button id="timerTestBtn" class="btn">Timer Test</button>
+					<p class="timerTest pull-right">Hide me after 2 seconds</p>
+				</div>
+				
+			</div>
+
+
+			<hr>
+			<div class="row">
+				<div class="col-md-6">
+					<pre>mini.ajax(type,uri,callback); <br><b>Result: </b><br><p id="testAjaxResult"></p></pre>
+				</div>
+				<div class="col-md-6">
+					<button id="testAjax" class="btn">Ajax Test</button>
+				</div>
+				
+			</div>
+
+
+
+			<hr>
+			<div class="row">
+				<div class="col-md-6">
+					<pre>mini.getDay <p id="testGetDay"></p><br>mini.getMonth <p id="testGetMonth"></p><br>mini.getYear <p id="testGetYear"></p></pre>
+				</div>
+				<div class="col-md-6">
+					<button id="testDate" class="btn">Mini Time</button>
+				</div>
+				
+			</div>
+
+
+
+
+			<hr>
+			<div class="row">
+				<div class="col-md-6">
+					<pre>mini.click('#miniClick',callback)</pre>
+				</div>
+				<div class="col-md-6">
+					<button id="clickTestBtn" class="btn">Click Test</button>
+				</div>
+				
+			</div>
+
 
 
 
@@ -105,6 +182,7 @@ console.log(e.target.value);
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/miniJS.js"></script>
+	<script type="text/javascript" src="js/miniJS_demo.js"></script>
 
 
 
@@ -125,47 +203,17 @@ console.log(e.target.value);
 
 
 	/*SHOW*/
-	$('#showText').click(function (e) {
-		//e.preventDefault();
-		//mini.last.Event = e;
-		mini.show('.showThisText');
-	});
+	
+	// mini.addEvent('click','clickTestBtn',function(){
+	// 	alert("click test!");
+	// });
 
-	/*HIDE*/
-	$('#hideText').click(function (e) {
-		//e.preventDefault();
-		//mini.last.Event = e;
-		mini.hide('.hideThisText'); // ID finns inte... class finns
-	});
-
-	/*EVENT CLICK*/
-	$('#testButton').click(function () {
-
-		mini.addEvent('click','testBtnEvent',function(e){
-			//e.preventDefault();
-			//mini.last.Event = e;
-			alert("Event is working!");
-		});
-	})
+	
 
 
-	/*EVENT KEYUP*/
-	$('#testInputBtn').click(function () {
-
-		mini.addEvent('keyup','testInput',function(e){
-			//e.preventDefault();
-			//mini.last.KeyPress = e.key;
-			testInputData.innerText = e.target.value;
-			console.log(e.target.value);
-		});
-	})
+	
 
 
-
-
-
-
-  		
   	</script>
 
 
