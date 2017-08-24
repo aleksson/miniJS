@@ -1,23 +1,15 @@
 # miniJS
-MiniJS - minified/lazy javascript functions
+MiniJS - minified/lazy vanilla javascript functions
 
-
-Works in IE 6,7,8,9 :)
 #### Live Demo at <http://minijs.acolab.it/>
 
-
 ### Example
+```javascript
+mini.getID("id") // document.getElementById()
 
+mini.getTag("tag") // document.getElementsByTagName()
 
-document.getElementById() -> mini.getID("id");
-
-document.getElementsByTagName() -> mini.getTag("tag");
-
-document.getElementsByClassName() -> mini.getClass("class");
-
-document.addEventListener() -> mini.addEvent("type","target",callback);
-
-
+mini.getClass("class") //document.getElementsByClassName()
 
 mini.hide("class/id"); //Hide element
 
@@ -25,14 +17,14 @@ mini.show("class/id"); //Show element
 
 mini.toggle("class/id");  //Toggle element
 
-mini.html("class/id","new content"); //Edit target html
-
-mini.timer("ms","callback","boolean"); // SetInterval(), true = loop, false = stop
-
 mini.click("target","callback"); // onClick
+
+mini.html("class/id","new content"); //Edit target html
 
 mini.ajax("type","URI","callback"); // XMLHttpRequest() - *headers inactive
 
-mini.addEvent("type","target","callback"); // addEventListener() - click, mouseover, keyup etc.
+mini.timer("ms","callback","boolean"); // SetInterval(), true = loop, false = stop
 
+mini.addEvent("type","target","callback"); // addEventListener() - click, mouseover, keyup etc.
+```
 
